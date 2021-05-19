@@ -1,7 +1,7 @@
 package com.epam.geometry;
 
 import com.epam.geometry.data.DataReader;
-import com.epam.geometry.model.AClass;
+import com.epam.geometry.model.Cone;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ public class Director {
     // Input file contains multiple lines, each line a geometry object
     // i.e. each line contains all necessary data to create object in a simple format like: 1.0 2.0 3.0
     // some line
-    public List<AClass> process(String filename){
+    public List<Cone> process(String filename){
         // Read lines from file
         // for each valid line create a geometry object (according to your task)
         throw new UnsupportedOperationException();
