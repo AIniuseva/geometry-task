@@ -3,9 +3,15 @@ package com.epam.geometry.model;
 import java.util.Objects;
 
 public class Point {
-    private double x;
-    private double y;
-    private double z;
+    private final double x;
+    private final double y;
+    private final double z;
+
+    public Point(double x, double y, double z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
 
     public double getX() {
         return x;

@@ -2,14 +2,19 @@ package com.epam.geometry.model;
 
 import java.util.Objects;
 
-// TODO: This is a placeholder, name this class according to your task
 public class Cone {
-    private Point point;
-    private double height;
-    private double radius;
+    private final Point center;
+    private final double height;
+    private final double radius;
+
+    public Cone(Point center, double height, double radius) {
+        this.center = center;
+        this.height = height;
+        this.radius = radius;
+    }
 
     public Point getPoint() {
-        return point;
+        return center;
     }
 
     public double getHeight() {
@@ -29,18 +34,18 @@ public class Cone {
             return false;
         }
         Cone cone = (Cone) o;
-        return Double.compare(cone.height, height) == 0 && Double.compare(cone.radius, radius) == 0 && Objects.equals(point, cone.point);
+        return Double.compare(cone.height, height) == 0 && Double.compare(cone.radius, radius) == 0 && Objects.equals(center, cone.center);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(point, height, radius);
+        return Objects.hash(center, height, radius);
     }
 
     @Override
     public String toString() {
         return "Cone{" +
-                "point=" + point +
+                "point=" + center +
                 ", height=" + height +
                 ", radius=" + radius +
                 '}';
