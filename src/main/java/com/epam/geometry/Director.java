@@ -13,7 +13,7 @@ public class Director {
 //    private final Creator creator;
 
 
-    public Director(DataReader reader, Validator validator, Creator creator) {
+    public Director(DataReader reader, Validator validator, ConeCreator creator) {
         //TODO: inject you dependencies here
     }
 
