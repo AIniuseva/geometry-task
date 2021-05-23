@@ -11,7 +11,7 @@ public class ConeLogicTest {
     private ConeLogic coneLogic;
 
     @Before
-    public void setup() {
+    public void setUp() {
         coneLogic = new ConeLogic();
     }
 
