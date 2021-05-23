@@ -9,17 +9,12 @@ import java.util.List;
 public class DataReaderTest {
 
     @Test
-    public void testReadLines() {
+    public void testReadLines() throws DataException {
         //given
         DataReader dataReader = new DataReader();
-        List<String> expectedList = fillListForTests();
+        final List<String> expectedList = fillListForTests();
         //when
-        List<String> actualList = new ArrayList<>();
-        try {
-            actualList = dataReader.readLines("src/test/resources/datafortest.txt");
-        } catch (DataException e) {
-            e.getCause();
-        }
+        final List<String> actualList = dataReader.readLines("src/test/resources/datafortest.txt");
         //then
         Assert.assertEquals(expectedList, actualList);
     }

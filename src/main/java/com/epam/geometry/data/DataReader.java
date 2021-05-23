@@ -1,6 +1,9 @@
 package com.epam.geometry.data;
 
+import com.epam.geometry.ConeCreator;
 import com.epam.geometry.ConeDataValidator;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -10,7 +13,8 @@ import java.util.List;
 
 public class DataReader {
 
-    //TODO: implement this method using BufferedReader, do not throw original IOException, wrap it with your own
+    private static final Logger logger = LogManager.getLogger(DataReader.class);
+
     public List<String> readLines(String filename) throws DataException {
 
         List<String> data = new ArrayList<>();
@@ -25,6 +29,7 @@ public class DataReader {
             }
 
         } catch (IOException e) {
+            logger.error(e.getMessage());
             throw new DataException("file is invalid", e.getCause());
         }
 
