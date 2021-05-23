@@ -1,4 +1,35 @@
 package com.epam.geometry.data;
 
+import org.junit.Assert;
+import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class DataReaderTest {
+
+    @Test
+    public void testReadLines() {
+        //given
+        DataReader dataReader = new DataReader();
+        List<String> expectedList = fillListForTests();
+        //when
+        List<String> actualList = new ArrayList<>();
+        try {
+            actualList = dataReader.readLines("src/test/resources/datafortest.txt");
+        } catch (DataException e) {
+            e.getCause();
+        }
+        //then
+        Assert.assertEquals(expectedList, actualList);
+    }
+
+    private List<String> fillListForTests() {
+        List<String> list = new ArrayList<>();
+        list.add("1.0 2.0 3.0 12.0 1.5");
+        list.add("50.2 3.0 3.2 67.2 8.0");
+        list.add("14.0 35.1 22.0 98.1 76.2");
+        list.add("9.2 2.1 3.1 22.0 12.7");
+        return list;
+    }
 }
