@@ -1,6 +1,7 @@
 package com.epam.geometry.data;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -8,15 +9,26 @@ import java.util.List;
 
 public class DataReaderTest {
 
+    private DataReader dataReader;
+
+    @Before
+    public void setUp() {
+        dataReader = new DataReader();
+    }
+
     @Test
     public void testReadLines() throws DataException {
         //given
-        DataReader dataReader = new DataReader();
         final List<String> expectedList = fillListForTests();
         //when
         final List<String> actualList = dataReader.readLines("src/test/resources/datafortest.txt");
         //then
         Assert.assertEquals(expectedList, actualList);
+    }
+
+    @Test(expected = DataException.class)
+    public void testReadLinesWhenException() throws DataException {
+        dataReader.readLines("filename");
     }
 
     private List<String> fillListForTests() {

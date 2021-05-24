@@ -32,7 +32,6 @@ public class ConeLogicTest {
         Cone cone = createConeForTests();
         //when
         double actualSurfaceArea = coneLogic.calculateSurfaceArea(cone);
-
         double expectedSurfaceArea = Math.PI * 5 * Math.sqrt(125) + Math.PI * Math.pow(5, 2);
         //then
         Assert.assertEquals(expectedSurfaceArea, actualSurfaceArea, 0);
