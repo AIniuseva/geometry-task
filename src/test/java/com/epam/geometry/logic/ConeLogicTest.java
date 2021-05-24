@@ -23,7 +23,7 @@ public class ConeLogicTest {
         double actualVolume = coneLogic.calculateVolume(cone);
         double expectedVolume = (double) 1 / 3 * Math.PI * Math.pow(5, 2) * 10;
         //then
-        Assert.assertEquals(actualVolume, expectedVolume, 0);
+        Assert.assertEquals(expectedVolume, actualVolume, 0);
     }
 
     @Test
@@ -35,7 +35,7 @@ public class ConeLogicTest {
 
         double expectedSurfaceArea = Math.PI * 5 * Math.sqrt(125) + Math.PI * Math.pow(5, 2);
         //then
-        Assert.assertEquals(actualSurfaceArea, expectedSurfaceArea, 0);
+        Assert.assertEquals(expectedSurfaceArea, actualSurfaceArea, 0);
     }
 
     private Cone createConeForTests() {

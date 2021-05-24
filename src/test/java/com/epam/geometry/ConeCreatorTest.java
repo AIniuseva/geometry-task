@@ -1,7 +1,6 @@
 package com.epam.geometry;
 
 import com.epam.geometry.model.Cone;
-import com.epam.geometry.model.Point;
 import org.junit.Assert;
 import org.junit.Test;
 

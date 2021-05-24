@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Director {
 
-    private static final Logger logger = LogManager.getLogger(Director.class);
+    private static final Logger LOGGER = LogManager.getLogger(Director.class);
     private final DataReader dataReader;
     private final ConeDataValidator coneValidator;
     private final ConeCreator coneCreator;
@@ -23,7 +23,6 @@ public class Director {
     }
 
     public List<Cone> process(String filename) {
-
         List<Cone> cones = new ArrayList<>();
 
         try {
@@ -35,7 +34,7 @@ public class Director {
             }
 
         } catch (DataException e) {
-            logger.error(e.getMessage());
+            LOGGER.error(e.getMessage());
             e.getCause();
         }
 
