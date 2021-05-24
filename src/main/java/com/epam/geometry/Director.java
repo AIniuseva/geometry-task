@@ -1,28 +1,44 @@
 package com.epam.geometry;
 
+import com.epam.geometry.data.DataException;
 import com.epam.geometry.data.DataReader;
 import com.epam.geometry.model.Cone;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Director {
 
-    //TODO: uncomment
-//    private final DataReader reader;
-//    private final Validator validator;
-//    private final Creator creator;
-
+    private static final Logger logger = LogManager.getLogger(Director.class);
+    private final DataReader dataReader;
+    private final ConeDataValidator coneValidator;
+    private final ConeCreator coneCreator;
 
     public Director(DataReader reader, ConeDataValidator validator, ConeCreator creator) {
-        //TODO: inject you dependencies here
+        this.dataReader = reader;
+        this.coneValidator = validator;
+        this.coneCreator = creator;
     }
 
-    // Input file contains multiple lines, each line a geometry object
-    // i.e. each line contains all necessary data to create object in a simple format like: 1.0 2.0 3.0
-    // some line
-    public List<Cone> process(String filename){
-        // Read lines from file
-        // for each valid line create a geometry object (according to your task)
-        throw new UnsupportedOperationException();
+    public List<Cone> process(String filename) {
+
+        List<Cone> cones = new ArrayList<>();
+
+        try {
+            List<String> data = dataReader.readLines(filename);
+            for (String line : data) {
+                if (coneValidator.validate(line)) {
+                    cones.add(coneCreator.create(line));
+                }
+            }
+
+        } catch (DataException e) {
+            logger.error(e.getMessage());
+            e.getCause();
+        }
+
+        return cones;
     }
 }
