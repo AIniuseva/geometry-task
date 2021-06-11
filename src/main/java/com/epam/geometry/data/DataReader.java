@@ -25,7 +25,7 @@ public class DataReader {
 
         } catch (IOException e) {
             LOGGER.error(e.getMessage());
-            throw new DataException("file is invalid", e.getCause());
+            throw new DataException(e.getMessage(), e);
         }
 
         return data;

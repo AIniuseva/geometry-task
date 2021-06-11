@@ -9,9 +9,10 @@ import org.apache.logging.log4j.Logger;
 public class ConeCreator {
 
     private static final Logger LOGGER = LogManager.getLogger(ConeCreator.class);
+    private static final String SPLITTER = "\\s+";
 
     public Cone create(String line) {
-        String[] dataForCreation = line.split(" ");
+        String[] dataForCreation = line.split(SPLITTER);
 
         double x = Double.parseDouble(dataForCreation[0]);
         double y = Double.parseDouble(dataForCreation[1]);
